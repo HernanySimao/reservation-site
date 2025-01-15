@@ -6,6 +6,8 @@ definePageMeta({
 
 <template>
   <section>
-    <div>reservation</div>
+    <div>
+      <DashboardReservation> </DashboardReservation>
+    </div>
   </section>
 </template>

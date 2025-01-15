@@ -1,7 +1,5 @@
 <script lang="ts" setup>
 </script>
-
-
 <template>
   <section>
     <div>
