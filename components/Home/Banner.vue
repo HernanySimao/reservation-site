@@ -5,7 +5,9 @@
   <section>
     <div class="container-fluid mt-4 xx">
       <div class="bg-color-primary d-flex align-items-center flex-wrap">
-        <div class="col-md-6 custom-card text-center text-md-start">
+        <div
+          class="col-md-6 custom-card text-center text-md-start primary-theme-font"
+        >
           <h1 class="title">Discover and book the best restaurant</h1>
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam

@@ -61,7 +61,7 @@ const loading = ref(false);
                 <label class="mb-1" for="">Email</label
                 ><input
                   type="text"
-                  placeholder="reserva@gmail.con«m"
+                  placeholder="reserva@gmail.com"
                   class="form-control"
                   required
                   v-model="data.email"

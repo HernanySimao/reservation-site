@@ -4,7 +4,7 @@
 
 <template>
   <section>
-    <div class="container mb-5">
+    <div class="container mb-5 primary-theme-font">
       <div class="mt-5 mb-5">
         <h2>As nossas mesas disponiveis</h2>
       </div>
@@ -22,9 +22,9 @@
 
 <style lang="sass" scoped>
 .card
-    border: 1px solid #f1f1f1
-    cursor: pointer
-    &:hover
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-        transition: 0.3s
+  border: 1px solid #f1f1f1
+  cursor: pointer
+  &:hover
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+    transition: 0.3s
 </style>
