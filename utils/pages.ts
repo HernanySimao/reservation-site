@@ -1,12 +1,12 @@
 export default [
     {
         name: "Mesas",
-        path: "/",
+        path: "/dashboard/table",
         icon:"/icons/mesa.png"
       },
       {
         name: "Reservas",
-        path: "/",
+        path: "/dashboard/reservation",
         icon:"/icons/reservado.png"
       },
       {
