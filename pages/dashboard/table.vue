@@ -7,6 +7,6 @@ definePageMeta({
 
 <template>
   <section>
-    <h1>Ok</h1>
+    <DashboardTable> </DashboardTable>
   </section>
 </template>

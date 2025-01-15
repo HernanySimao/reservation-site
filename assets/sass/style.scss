@@ -25,6 +25,23 @@ html {
   }
 }
 
+.button-primary-outline {
+  color: variables.$primary-theme-color; 
+  border: none;
+  padding: 5px 30px;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 17px;
+  margin: 10px;
+  transition: 0.3s all ease-in-out;
+
+  &:hover {
+    padding: 15px 40px;
+    @extend .button-primary-outline;
+  }
+}
+
+
 
 .bg-color-primary {
   background-color: variables.$primary-theme-color-dark;
