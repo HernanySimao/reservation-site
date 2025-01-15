@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div>
+  <div class="mt-d">
     <HomeBanner> </HomeBanner>
     <HomeCard> </HomeCard>
   </div>
@@ -10,4 +10,6 @@
 
 
 <style lang="sass" scoped>
+.mt-d
+  margin-top: 150px
 </style>

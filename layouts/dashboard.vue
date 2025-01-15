@@ -18,7 +18,11 @@ const logout = () => {
       <div class="row">
         <div class="col-lg-2 col-3 g-0">
           <div class="sidebar position-relative">
-            <h1 class="logo text-center fw-bold mb-5">LOGO</h1>
+            <h1 class="text-center fw-bold mb-5">
+              <NuxtLink to="/dashboard/table"
+                ><img class="logo" src="/icons/logo-white.png" alt=""
+              /></NuxtLink>
+            </h1>
             <ul class="menu">
               <li v-for="(page, i) in pages" :key="i" class="mb-3 items">
                 <NuxtLink class="link btn border-0" :to="page?.path">
@@ -52,6 +56,11 @@ const logout = () => {
   color: #fff
   padding-top: 20px
   transition: width 0.3s ease
+
+.logo
+  width: 20%
+  height: auto
+  opacity: 0.9
 
 .menu
   list-style-type: none

@@ -11,20 +11,19 @@
 
       <div class="row">
         <div v-for="i in 10" :key="i" class="col-md-6 mt-1 mb-1">
-          <div class="card">
+          <div
+            class="card"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
             <div class="card-body">Mesa {{ i }}</div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <Modal> </Modal>
 </template>
 
-<style lang="sass" scoped>
-.card
-  border: 1px solid #f1f1f1
-  cursor: pointer
-  &:hover
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-    transition: 0.3s
-</style>
+ 

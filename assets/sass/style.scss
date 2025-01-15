@@ -49,3 +49,14 @@ html {
   border-radius: 10px;
   padding: 10px;
 }
+
+
+.card {
+  border: 1px solid #f1f1f1;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+}
+  

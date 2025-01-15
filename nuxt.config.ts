@@ -20,7 +20,7 @@ export default defineNuxtConfig({
         { property: 'og:locale', content: 'pt_AO' }
       ],
       link: [
-        { rel: "icon", href: "/favicon.ico" }
+        { rel: "icon", href: "/logo.ico" }
       ],
       script: [
         {

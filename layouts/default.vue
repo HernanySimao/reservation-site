@@ -3,10 +3,13 @@
 
 <template>
   <section>
-    <div>
+    <div class="fixed-top">
       <Menu> </Menu>
     </div>
 
     <slot> </slot>
   </section>
 </template>
+
+<style lang="sass" scoped>
+</style>

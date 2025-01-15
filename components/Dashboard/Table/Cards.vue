@@ -23,7 +23,7 @@
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <a href="#" class="btn button-primary">Ver detalhe {{ i }} </a>
+                <a href="#" class="btn button-primary">Ver detalhe</a>
               </div>
             </div>
           </div>
@@ -35,5 +35,11 @@
 </template>
 
 
-<style scoped>
+<style lang="sass" scoped>
+.button-primary
+  padding: 10px
+
+.btn-danger
+  border-radius: 0
+  padding: 10px
 </style>

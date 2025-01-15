@@ -8,11 +8,10 @@
         <div
           class="col-md-6 custom-card text-center text-md-start primary-theme-font"
         >
-          <h1 class="title">Discover and book the best restaurant</h1>
+          <h1 class="title">Reserve sua Mesa no melhor Restaurante</h1>
           <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            enim dicta tenetur minus voluptates distinctio suscipit praesentium
-            totam placeat blanditiis!
+            Explore uma variedade de opções, desde os clássicos até os mais
+            exclusivos, e faça sua reserva de forma rápida e segura.
           </div>
         </div>
       </div>
