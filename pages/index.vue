@@ -3,7 +3,8 @@
 
 <template>
   <div>
-    <h1>Home</h1>
+    <HomeBanner> </HomeBanner>
+    <HomeCard> </HomeCard>
   </div>
 </template>
 
