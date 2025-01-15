@@ -9,15 +9,4 @@ export default [
         path: "/dashboard/reservation",
         icon:"/icons/reservado.png"
       },
-      {
-        name: "Usúarios",
-        path: "/",
-        icon:""
-      },
-      {
-        name: "Configurações",
-        path: "/",
-        icon:""
-      },
-       
 ]

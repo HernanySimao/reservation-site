@@ -28,7 +28,8 @@ const logout = () => {
               </li>
               <li class="items mb-3">
                 <button @click="logout" class="link btn border-0">
-                  <span class="name-link ms-3 mt-1">Terminar Sessão</span>
+                  <img class="icon-menu" src="/icons/sair.png" alt="" />
+                  <span class="name-link ms-3 mt-1">Sair</span>
                 </button>
               </li>
             </ul>
@@ -56,6 +57,9 @@ const logout = () => {
   list-style-type: none
   padding: 0
   margin: 0
+
+.icon-menu-logout
+  width: 25px
 
 .items
   padding-left: 30px
