@@ -29,6 +29,7 @@ watch(
 );
 
 const loading = ref(false);
+const shouldRefreshData = useState("shouldRefreshData");
 
 const createTable = async () => {
   try {
@@ -42,6 +43,7 @@ const createTable = async () => {
     });
 
     loading.value = false;
+    shouldRefreshData.value = true;
     const closeButton = document.querySelector(
       '.btn.btn-secondary[data-bs-dismiss="modal"]'
     );
@@ -65,7 +67,7 @@ const updateTable = async () => {
 
     loading.value = false;
     const closeButton = document.querySelector(
-      '.btn.btn-secondary[data-bs-dismiss="modal"]'
+      '.btn-close[data-bs-dismiss="modal"]'
     );
     if (closeButton) {
       closeButton.click();

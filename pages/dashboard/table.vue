@@ -4,6 +4,7 @@ definePageMeta({
   middleware: "auth",
 });
 
+const shouldRefreshData = useState("shouldRefreshData", () => false);
 const data = ref(null);
 const fetchData = async () => {
   try {
@@ -15,6 +16,13 @@ const fetchData = async () => {
     data.value = fetchedData.value;
   } catch (err) {}
 };
+
+watch(shouldRefreshData, (newValue) => {
+  if (newValue) {
+    fetchData();
+    shouldRefreshData.value = false;
+  }
+});
 
 onMounted(() => {
   fetchData();
