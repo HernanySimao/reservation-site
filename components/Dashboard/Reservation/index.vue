@@ -43,7 +43,7 @@ function formatDate(isoDate) {
             <td>{{ item.clientName }}</td>
             <td>{{ item.clientNumber }}</td>
             <td>{{ formatDate(item.reservationDateTime) }}</td>
-            <td>{{ item.mesa ? item.mesa : "Indisponivel" }}</td>
+            <td>{{ item.mesa ? "#" + item.mesa?.numero : "----" }}</td>
           </tr>
         </tbody>
       </table>

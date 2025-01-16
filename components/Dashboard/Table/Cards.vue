@@ -29,7 +29,7 @@ const isDate = ref([]);
             <div class="card">
               <div class="card-body">
                 <img class="image-table" src="/image/mesa.jpg" alt="mesa" />
-                <h5 class="card-title mt-3">Mesa {{ item.numero }}</h5>
+                <h5 class="card-title mt-3">Mesa #{{ item.numero }}</h5>
                 <h5 class="card-text">Capacidade: {{ item.capacidade }}</h5>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,

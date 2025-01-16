@@ -1,17 +1,16 @@
 <script  setup>
+import { watch, ref } from "vue";
+
 const { isUpdate, isDate } = defineProps({
   isUpdate: {
     type: Boolean,
     required: false,
   },
-
   isDate: {
     type: Object,
     required: false,
   },
 });
-
-const dateData = computed(() => isDate || {});
 
 const data = ref({
   numero: "",
@@ -19,6 +18,13 @@ const data = ref({
 });
 
 const loading = ref(false);
+
+watch([isUpdate, isDate], ([newIsUpdate, newIsDate]) => {
+  if (!newIsUpdate && newIsDate) {
+    data.value.numero = newIsDate.numero || "";
+    data.value.capacidade = newIsDate.capacidade || "";
+  }
+});
 
 const createTable = async () => {
   try {
