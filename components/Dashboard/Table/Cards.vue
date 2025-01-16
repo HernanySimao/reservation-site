@@ -1,4 +1,13 @@
 <script lang="ts" setup>
+defineProps({
+  data: {
+    type: Boolean,
+    required: false,
+  },
+});
+
+const isUpdate = ref(false);
+const isDate = ref([]);
 </script>
 <template>
   <section>
@@ -11,25 +20,38 @@
               class="button-primary-outline"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
+              @click="(isUpdate = false), (isDate = '')"
             >
               Criar
             </button>
           </div>
-          <div v-for="i in 6" :key="i" class="col-md-6 mt-4 mb-2">
+          <div v-for="(item, i) in data" :key="i" class="col-md-6 mt-4 mb-2">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                <img class="image-table" src="/image/mesa.jpg" alt="mesa" />
+                <h5 class="card-title mt-3">Mesa {{ item.numero }}</h5>
+                <h5 class="card-text">Capacidade: {{ item.capacidade }}</h5>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
+                  facere?
                 </p>
-                <a href="#" class="btn button-primary">Ver detalhe</a>
+                <a
+                  href="#"
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                  class="btn button-primary"
+                  @click="(isUpdate = true), (isDate = item)"
+                  >Ver detalhe</a
+                >
               </div>
             </div>
           </div>
         </div>
       </div>
-      <DashboardTableModal></DashboardTableModal>
+      <DashboardTableModal
+        :isUpdate="isUpdate"
+        :isDate="isDate"
+      ></DashboardTableModal>
     </div>
   </section>
 </template>
@@ -42,4 +64,9 @@
 .btn-danger
   border-radius: 0
   padding: 10px
+
+.image-table
+  width: 100%
+  // height: 200px
+  object-fit: cover
 </style>

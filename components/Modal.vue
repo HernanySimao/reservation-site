@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup>
 </script>
 
 
@@ -45,6 +45,6 @@
 
 <style lang="sass" scoped>
 .button-primary
-    padding: 10px 10px !important
-    border-radius: 5px
+  padding: 10px 10px !important
+  border-radius: 5px
 </style>

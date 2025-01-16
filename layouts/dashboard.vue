@@ -4,7 +4,6 @@ import type { Menu } from "@/Interfaces/IPage";
 const logout = () => {
   try {
     localStorage.removeItem("token");
-    localStorage.removeItem("userId");
     navigateTo("/auth");
   } catch (err) {
     console.error(err);

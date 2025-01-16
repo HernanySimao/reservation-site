@@ -14,6 +14,7 @@
     "@nuxt/image": "^1.0.0",
     "nuxt": "^3.9.1",
     "nuxt-aos": "^1.2.4",
+    "sweetalert2": "^11.12.3",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
   },
@@ -21,7 +22,7 @@
     "ipx": "^3.0.0",
     "npm": "^10.5.2",
     "sass": "^1.70.0",
-    "sweetalert2": "^11.9.0",
+    "sweetalert": "^2.1.2",
     "swiper": "^11.0.6",
     "vue-currency-input": "^3.1.0",
     "vue3-html2pdf": "^1.1.2"

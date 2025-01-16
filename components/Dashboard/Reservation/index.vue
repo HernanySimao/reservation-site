@@ -1,3 +1,26 @@
+<script setup>
+defineProps({
+  data: {
+    type: Object,
+    required: true,
+  },
+});
+
+function formatDate(isoDate) {
+  const date = new Date(isoDate);
+
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const year = date.getFullYear();
+
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+
+  return `${day}-${month}-${year}`;
+}
+</script>
+
+
 <template>
   <section>
     <div class="container">
@@ -8,19 +31,19 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            <th scope="col">status</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Número</th>
+            <th scope="col">Data da reserva</th>
+            <th scope="col">Número da mesa</th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="i in 10" :key="i">
+          <tr v-for="(item, i) in data" :key="i">
             <th scope="row">{{ i }}</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>Confirmado</td>
+            <td>{{ item.clientName }}</td>
+            <td>{{ item.clientNumber }}</td>
+            <td>{{ formatDate(item.reservationDateTime) }}</td>
+            <td>{{ item.mesa ? item.mesa : "Indisponivel" }}</td>
           </tr>
         </tbody>
       </table>

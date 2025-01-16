@@ -24,10 +24,15 @@ const login = async () => {
     });
 
     if (response.error?.value) {
-      const statusCode =
-        response.error.value.status || response.error.value.data?.statusCode;
-
-      if (statusCode === 401) {
+      if (response.status.value === "success") {
+        loading.value = false;
+        $swal.toast.fire({
+          icon: "success",
+          text: "Bem-vindo devolta!",
+        });
+        return;
+      }
+      if (statusCode === "Not Found") {
         loading.value = false;
         $swal.toast.fire({
           icon: "error",
@@ -38,7 +43,6 @@ const login = async () => {
     }
     loading.value = false;
     navigateTo("/dashboard/table");
-    localStorage.setItem("userId", response.data.value.id);
     localStorage.setItem("token", response.data.value.token);
   } catch (err) {
     console.log(err);
