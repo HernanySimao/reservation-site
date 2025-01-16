@@ -42,7 +42,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     app: {
-      API: process.env.API_URL,
+      API: process.env.API_URL + '/api/v1/',
     }
   },
 

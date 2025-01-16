@@ -12,39 +12,38 @@ const data = ref({
 
 const loading = ref(false);
 
-// const login = async () => {
-//   try {
-//     loading.value = true;
-//     const response = await useIFetch("auth/login", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: data,
-//     });
+const login = async () => {
+  try {
+    loading.value = true;
+    const response = await useIFetch("usuario/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: data,
+    });
 
-//     if (response.error?.value) {
-//       const statusCode =
-//         response.error.value.status || response.error.value.data?.statusCode;
+    if (response.error?.value) {
+      const statusCode =
+        response.error.value.status || response.error.value.data?.statusCode;
 
-//       if (statusCode === 401) {
-//         loading.value = false;
-//         $swal.toast.fire({
-//           icon: "error",
-//           text: response.error.value.data?.message || "Credenciais inválidas.",
-//         });
-//         return;
-//       }
-//     }
-
-//     loading.value = false;
-//     navigateTo("/dashboard");
-//     localStorage.setItem("userId", response.data.value.id);
-//     localStorage.setItem("token", response.data.value.token);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+      if (statusCode === 401) {
+        loading.value = false;
+        $swal.toast.fire({
+          icon: "error",
+          text: response.error.value.data?.message || "Credenciais inválidas.",
+        });
+        return;
+      }
+    }
+    loading.value = false;
+    navigateTo("/dashboard/table");
+    localStorage.setItem("userId", response.data.value.id);
+    localStorage.setItem("token", response.data.value.token);
+  } catch (err) {
+    console.log(err);
+  }
+};
 </script>
 <template>
   <section>
@@ -76,9 +75,6 @@ const loading = ref(false);
                   required
                   v-model="data.password"
                 />
-                <NuxtLink to="/auth/recover-password" class="text-muted mt-4"
-                  >Esqueceu-se da senha?</NuxtLink
-                >
               </div>
               <button
                 v-if="!loading"
@@ -89,7 +85,7 @@ const loading = ref(false);
               </button>
               <div
                 v-else
-                class="btn button-primary-disabled w-100 text-uppercase fw-bold mb-3"
+                class="btn button-primary w-100 text-uppercase fw-bold mb-3"
               >
                 <div
                   class="spinner-border spinner-border-sm"
