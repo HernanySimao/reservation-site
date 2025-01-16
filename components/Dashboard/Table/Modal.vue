@@ -1,4 +1,5 @@
 <script  setup>
+const { $swal } = useNuxtApp();
 const { isUpdate, isDate } = defineProps({
   isUpdate: {
     type: Boolean,
@@ -42,6 +43,11 @@ const createTable = async () => {
       body: data,
     });
 
+    $swal.toast.fire({
+      icon: "success",
+      text: "Mesa criada com sucesso!",
+    });
+
     loading.value = false;
     shouldRefreshData.value = true;
     const closeButton = document.querySelector(
@@ -65,6 +71,10 @@ const updateTable = async () => {
       body: data,
     });
 
+    $swal.toast.fire({
+      icon: "success",
+      text: "Mesa actualizada com sucesso!",
+    });
     loading.value = false;
     shouldRefreshData.value = true;
     const closeButton = document.querySelector(
@@ -84,23 +94,44 @@ const closeModal = () => {
 };
 
 const deleteTable = async () => {
-  try {
-    const response = await useIFetch(`mesa/apagarMesa/${isDate?.id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const result = await $swal.modal.fire({
+    title: "Você tem certeza?",
+    text: "Essa ação não pode ser desfeita!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Sim",
+    cancelButtonText: "Não",
+    customClass: {
+      confirmButton: "btn btn-danger btn-lg font-toast",
+      cancelButton: "btn btn-dark ms-4 w-20 btn-lg font-toast",
+    },
+  });
 
-    shouldRefreshData.value = true;
-    const closeButton = document.querySelector(
-      '.btn-close[data-bs-dismiss="modal"]'
-    );
-    if (closeButton) {
-      closeButton.click();
+  if (result.isConfirmed) {
+    try {
+      const response = await useIFetch(`mesa/apagarMesa/${isDate?.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      $swal.toast.fire({
+        icon: "success",
+        text: "Mesa eliminada com sucesso!",
+      });
+
+      shouldRefreshData.value = true;
+      const closeButton = document.querySelector(
+        '.btn-close[data-bs-dismiss="modal"]'
+      );
+      if (closeButton) {
+        closeButton.click();
+      }
+    } catch (err) {
+      console.log(err);
     }
-  } catch (err) {
-    console.log(err);
+  } else if (result.dismiss === "cancel") {
   }
 };
 </script>

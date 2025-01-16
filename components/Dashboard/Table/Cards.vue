@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+const { $swal } = useNuxtApp();
 defineProps({
   data: {
     type: Boolean,
@@ -34,9 +35,9 @@ function getRandomImage() {
             v-if="data"
             v-for="(item, i) in data"
             :key="i"
-            class="col-md-6 mt-4 mb-2"
+            class="col-md-6 mt-4 mb-2 d-flex align-items-stretch"
           >
-            <div class="card d-flex align-items-stretch">
+            <div class="card">
               <div class="card-body">
                 <img class="image-table" :src="getRandomImage()" alt="mesa" />
                 <h5 class="card-title mt-3">Mesa #{{ item.numero }}</h5>
@@ -53,7 +54,7 @@ function getRandomImage() {
               </div>
             </div>
           </div>
-          <div>
+          <div v-else>
             <h5 class="text-center mt-5">Sem mesas disponiveís</h5>
           </div>
         </div>

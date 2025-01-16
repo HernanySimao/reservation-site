@@ -23,22 +23,19 @@ const login = async () => {
       body: data,
     });
 
-    if (response.error?.value) {
+    if (response.status) {
       if (response.status.value === "success") {
         loading.value = false;
         $swal.toast.fire({
           icon: "success",
           text: "Bem-vindo devolta!",
         });
-        return;
-      }
-      if (statusCode === "Not Found") {
-        loading.value = false;
+        navigateTo("/dashboard/table");
+      } else {
         $swal.toast.fire({
           icon: "error",
-          text: response.error.value.data?.message || "Credenciais inválidas.",
+          text: "Número/Password errada!",
         });
-        return;
       }
     }
     loading.value = false;
