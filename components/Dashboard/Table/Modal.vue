@@ -66,6 +66,7 @@ const updateTable = async () => {
     });
 
     loading.value = false;
+    shouldRefreshData.value = true;
     const closeButton = document.querySelector(
       '.btn-close[data-bs-dismiss="modal"]'
     );
@@ -91,6 +92,7 @@ const deleteTable = async () => {
       },
     });
 
+    shouldRefreshData.value = true;
     const closeButton = document.querySelector(
       '.btn-close[data-bs-dismiss="modal"]'
     );

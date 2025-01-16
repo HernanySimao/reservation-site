@@ -8,6 +8,11 @@ defineProps({
 
 const isUpdate = ref(false);
 const isDate = ref([]);
+
+function getRandomImage() {
+  const randomIndex = Math.floor(Math.random() * 3);
+  return `/image/mesa${randomIndex}.jpg`;
+}
 </script>
 <template>
   <section>
@@ -28,7 +33,7 @@ const isDate = ref([]);
           <div v-for="(item, i) in data" :key="i" class="col-md-6 mt-4 mb-2">
             <div class="card">
               <div class="card-body">
-                <img class="image-table" src="/image/mesa.jpg" alt="mesa" />
+                <img class="image-table" :src="getRandomImage()" alt="mesa" />
                 <h5 class="card-title mt-3">Mesa #{{ item.numero }}</h5>
                 <h5 class="card-text">Capacidade: {{ item.capacidade }}</h5>
                 <p>
