@@ -27,7 +27,7 @@ function formatDate(isoDate) {
       <div class="mt-5 mb-5">
         <h1>Reservas</h1>
       </div>
-      <table class="table">
+      <table v-if="data" class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
@@ -47,6 +47,9 @@ function formatDate(isoDate) {
           </tr>
         </tbody>
       </table>
+      <div v-else>
+        <h5 class="text-center mt-5">Sem reservas disponiveís</h5>
+      </div>
     </div>
   </section>
 </template>

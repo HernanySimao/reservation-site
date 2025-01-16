@@ -7,6 +7,11 @@ defineProps({
 });
 
 const id = ref("");
+
+function getRandomImage() {
+  const randomIndex = Math.floor(Math.random() * 3);
+  return `/image/mesa${randomIndex}.jpg`;
+}
 </script>
 
 
@@ -19,7 +24,12 @@ const id = ref("");
             <h2>As nossas mesas disponiveis</h2>
           </div>
         </div>
-        <div v-for="(item, i) in data" :key="i" class="col-md-6 mt-4 mb-2">
+        <div
+          v-if="data"
+          v-for="(item, i) in data"
+          :key="i"
+          class="col-md-6 mt-4 mb-2 d-flex align-items-stretch"
+        >
           <div
             class="card"
             data-bs-toggle="modal"
@@ -27,15 +37,14 @@ const id = ref("");
             @click="id = item.id"
           >
             <div class="card-body">
-              <img class="image-table" src="/image/mesa.jpg" alt="mesa" />
-              <h5 class="card-title mt-3">Mesa {{ item.numero }}</h5>
+              <img class="image-table" :src="getRandomImage()" alt="mesa" />
+              <h5 class="card-title mt-3">Mesa #{{ item.numero }}</h5>
               <h5 class="card-text">Capacidade: {{ item.capacidade }}</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-                facere?
-              </p>
             </div>
           </div>
+        </div>
+        <div v-else>
+          <h5 class="text-center mt-5 mb-5">Sem mesas disponiveís</h5>
         </div>
       </div>
     </div>

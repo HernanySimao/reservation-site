@@ -30,16 +30,18 @@ function getRandomImage() {
               Criar
             </button>
           </div>
-          <div v-for="(item, i) in data" :key="i" class="col-md-6 mt-4 mb-2">
-            <div class="card">
+          <div
+            v-if="data"
+            v-for="(item, i) in data"
+            :key="i"
+            class="col-md-6 mt-4 mb-2"
+          >
+            <div class="card d-flex align-items-stretch">
               <div class="card-body">
                 <img class="image-table" :src="getRandomImage()" alt="mesa" />
                 <h5 class="card-title mt-3">Mesa #{{ item.numero }}</h5>
                 <h5 class="card-text">Capacidade: {{ item.capacidade }}</h5>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-                  facere?
-                </p>
+
                 <a
                   href="#"
                   data-bs-toggle="modal"
@@ -50,6 +52,9 @@ function getRandomImage() {
                 >
               </div>
             </div>
+          </div>
+          <div>
+            <h5 class="text-center mt-5">Sem mesas disponiveís</h5>
           </div>
         </div>
       </div>
