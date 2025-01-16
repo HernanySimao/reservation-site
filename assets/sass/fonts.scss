@@ -1,0 +1,15 @@
+@use 'variables';
+
+.primary-theme-font {
+    font-family: variables.$primary-theme-font;
+}
+
+.secondary-theme-font {
+    font-family: variables.$primary-theme-font;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.font-toast {
+    font-family: variables.$primary-theme-font;
+}

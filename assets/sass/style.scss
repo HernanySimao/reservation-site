@@ -1,0 +1,62 @@
+@use "variables";
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.button-primary {
+  background-color: variables.$primary-theme-color; 
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 17px;
+  margin: 10px;
+  transition: 0.3s all ease-in-out;
+
+  &:hover {
+    padding: 15px 40px;
+    @extend .button-primary;
+  }
+}
+
+.button-primary-outline {
+  color: variables.$primary-theme-color; 
+  border: none;
+  padding: 5px 30px;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 17px;
+  margin: 10px;
+  transition: 0.3s all ease-in-out;
+
+  &:hover {
+    padding: 15px 40px;
+    @extend .button-primary-outline;
+  }
+}
+
+
+
+.bg-color-primary {
+  background-color: variables.$primary-theme-color-dark;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+.card {
+  border: 1px solid #f1f1f1;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+  }
+}
+  

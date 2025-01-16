@@ -20,7 +20,7 @@ export default defineNuxtConfig({
         { property: 'og:locale', content: 'pt_AO' }
       ],
       link: [
-        { rel: "icon", href: "/favicon.ico" }
+        { rel: "icon", href: "/logo.ico" }
       ],
       script: [
         {
@@ -42,7 +42,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     app: {
-      
+      API: process.env.API_URL + '/api/v1/',
     }
   },
 
