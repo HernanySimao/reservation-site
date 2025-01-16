@@ -1,11 +1,10 @@
 <script  setup>
-import { watch, ref } from "vue";
-
 const { isUpdate, isDate } = defineProps({
   isUpdate: {
     type: Boolean,
     required: false,
   },
+
   isDate: {
     type: Object,
     required: false,
@@ -17,14 +16,19 @@ const data = ref({
   capacidade: "",
 });
 
-const loading = ref(false);
+watch(
+  () => isUpdate, // Observa a propriedade isUpdate
+  (newValue) => {
+    if (newValue && isDate) {
+      // Se isUpdate for false e isDate estiver disponível
+      data.value.numero = isDate.numero || "";
+      data.value.capacidade = isDate.capacidade || "";
+    }
+  },
+  { immediate: true } // Garante que a função seja executada imediatamente se isUpdate for false
+);
 
-watch([isUpdate, isDate], ([newIsUpdate, newIsDate]) => {
-  if (!newIsUpdate && newIsDate) {
-    data.value.numero = newIsDate.numero || "";
-    data.value.capacidade = newIsDate.capacidade || "";
-  }
-});
+const loading = ref(false);
 
 const createTable = async () => {
   try {
@@ -71,6 +75,11 @@ const updateTable = async () => {
   }
 };
 
+const closeModal = () => {
+  data.value.numero = "";
+  data.value.capacidade = "";
+};
+
 const deleteTable = async () => {
   try {
     const response = await useIFetch(`mesa/apagarMesa/${isDate?.id}`, {
@@ -113,6 +122,7 @@ const deleteTable = async () => {
               class="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
+              @click="closeModal"
             ></button>
           </div>
           <div class="modal-body">
@@ -150,12 +160,8 @@ const deleteTable = async () => {
               </button>
             </div>
             <div v-else>
-              <button
-                @click="deleteTable"
-                type="button"
-                class="btn btn-secondary"
-              >
-                Eliminar
+              <button @click="deleteTable" type="button" class="btn btn-danger">
+                Eliminar mesa
               </button>
             </div>
             <div v-if="!isUpdate">
